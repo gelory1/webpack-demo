@@ -28,19 +28,15 @@ module.exports = {
         },
           {
             test: /\.scss$/,
-            use: [{
-                loader: "style-loader"
-            }, {
-                loader: "css-loader"
-            }, {
-                loader: "sass-loader",
-                options: {
-                    includePaths: ["absolute/path/a", "absolute/path/b"]
-                }
-            },
+            use: [
+                "style-loader", // creates style nodes from JS strings
+                "css-loader", // translates CSS into CommonJS
+                "sass-loader" // compiles Sass to CSS
+            ]
+       },
             {
             // 图片格式正则
-                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+               test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
                 use: [
                   {
                     loader: 'url-loader',
